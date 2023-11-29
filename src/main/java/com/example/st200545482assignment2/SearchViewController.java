@@ -34,6 +34,8 @@ public class SearchViewController {
     @FXML
     private Label versionLabel;
 
+    private McSrvResponse server;
+
     @FXML
     public void initialize() {
         onlineLabel.setText("");
@@ -43,7 +45,7 @@ public class SearchViewController {
     @FXML
     void searchButton(ActionEvent event) {
         try {
-            McSrvResponse server = APIUtility.callMcSrvAPI(ipTextField.getText().trim());
+            server = APIUtility.callMcSrvAPI(ipTextField.getText().trim());
 
             if(server.isOnline()) {
                 onlineLabel.setText("Server Is Online!");
@@ -67,7 +69,7 @@ public class SearchViewController {
     @FXML
     void showPlayersButton(ActionEvent event) {
         try {
-            SceneChanger.changeScenes(event, "search-view.fxml");
+            SceneChanger.changeScenes(event, "search-view.fxml", server.getPlayerInfo().getPlayerList());
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

@@ -19,13 +19,13 @@ public class SceneChanger {
         stage.setScene(scene);
         stage.show();
     }
-    public static void changeScenes(ActionEvent event, String fxmlFileName, String ip, List<Player> playerList) throws IOException {
+    public static void changeScenes(ActionEvent event, String fxmlFileName, List<Player> playerList) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource(fxmlFileName));
         Scene scene = new Scene(fxmlLoader.load());
 
         //get the Controller for the destination view and call the "loadPlayers()" method
         PlayerLoader controller = fxmlLoader.getController();
-        controller.loadPlayers(ip, playerList);
+        controller.loadPlayers(playerList);
 
         //get the stage from the ActionEvent
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
