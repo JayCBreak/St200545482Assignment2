@@ -29,7 +29,11 @@ public class PlayerViewController  implements PlayerLoader{
 
     @FXML
     void searchServersButton(ActionEvent event) {
-
+        try {
+            SceneChanger.changeScenes(event, "search-view.fxml");
+        } catch (Exception e) {
+            System.out.println("Cannot change scenes: " + e.getMessage());
+        }
     }
 
     public void loadPlayers(List<Player> players) {

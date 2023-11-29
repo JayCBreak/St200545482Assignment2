@@ -71,7 +71,7 @@ public class SearchViewController {
         try {
             SceneChanger.changeScenes(event, "search-view.fxml", server.getPlayerInfo().getPlayerList());
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            System.out.println("Cannot change scenes: " + e.getMessage());
         }
     }
 }
