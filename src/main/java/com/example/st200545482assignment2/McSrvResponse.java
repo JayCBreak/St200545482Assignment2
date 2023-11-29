@@ -12,7 +12,7 @@ public class McSrvResponse {
     private String version;
     private String icon;
     @SerializedName("players")
-    private ArrayList<ServerPlayerInfo> playerInfo;
+    private ServerPlayerInfo playerInfo;
 
     public boolean isOnline() {
         return online;
@@ -38,7 +38,7 @@ public class McSrvResponse {
         return icon;
     }
 
-    public ArrayList<ServerPlayerInfo> getPlayerInfo() {
+    public ServerPlayerInfo getPlayerInfo() {
         return playerInfo;
     }
 }

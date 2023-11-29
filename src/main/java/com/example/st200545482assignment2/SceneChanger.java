@@ -23,7 +23,7 @@ public class SceneChanger {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource(fxmlFileName));
         Scene scene = new Scene(fxmlLoader.load());
 
-        //get the Controller for the destination view and call the "loadMovies()" method
+        //get the Controller for the destination view and call the "loadPlayers()" method
         PlayerLoader controller = fxmlLoader.getController();
         controller.loadPlayers(ip, playerList);
 

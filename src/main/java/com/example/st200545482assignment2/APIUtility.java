@@ -9,6 +9,8 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class APIUtility {
     public static McSrvResponse callMcSrvAPI(String serverIp) throws IOException, InterruptedException {
@@ -24,12 +26,28 @@ public class APIUtility {
         HttpResponse<String> httpResponse = client.send(httpRequest, HttpResponse.BodyHandlers
                 .ofString());
 
-        System.out.println(httpResponse.body());
+        //Save latest server to a file
+        HttpResponse<Path> httpResponseFile = client.send(httpRequest, HttpResponse.BodyHandlers
+                                                    .ofFile(Paths.get("server.json")));
 
         Gson gson = new Gson();
         return gson.fromJson(httpResponse.body(), McSrvResponse.class);
     }
 
-    // I had a method for calling the Crafatar API to get player faces but it just returns PNG's when given
-    // Minecraft UUID's so it's easier to just implement it in the Model
+    public static McSrvResponse getLastServer() {
+        Gson gson = new Gson();
+        try (
+                FileReader fileReader = new FileReader("server.json");
+                JsonReader jsonReader = new JsonReader(fileReader);
+        )
+        {
+            return gson.fromJson(jsonReader, McSrvResponse.class);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    // I had a method for calling the Crafatar API to get player faces, but it just returns PNGs when given
+    // Minecraft UUID's instead of any json data, so it's easier to just implement it in the Model
 }
