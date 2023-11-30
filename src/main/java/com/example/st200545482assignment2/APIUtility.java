@@ -13,6 +13,15 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 public class APIUtility {
+    /**
+     * This function gets the server data given an IP or hostname of a server with an optional port
+     * Format - [hostname], or [IP], or [hostname:port], or [IP:port].
+     * @param serverIp The IP/hostname of the server to connect to. If given a port such as :25565 it will use it,
+     *                 however the API also autocompletes the port itself.
+     * @return An object containing details of the server requested.
+     * @throws IOException
+     * @throws InterruptedException
+     */
     public static McSrvResponse callMcSrvAPI(String serverIp) throws IOException, InterruptedException {
         //Remove any spaces because that would create an invalid IP address
         serverIp = serverIp.trim().replaceAll(" ", "");
@@ -26,15 +35,15 @@ public class APIUtility {
         HttpResponse<String> httpResponse = client.send(httpRequest, HttpResponse.BodyHandlers
                 .ofString());
 
-        //Save latest server to a file
-        HttpResponse<Path> httpResponseFile = client.send(httpRequest, HttpResponse.BodyHandlers
-                                                    .ofFile(Paths.get("server.json")));
-
         Gson gson = new Gson();
         return gson.fromJson(httpResponse.body(), McSrvResponse.class);
     }
 
-    public static McSrvResponse getLastServer() {
+    /**
+     * This function reads the example server shown in server.json. It is from my own server when a few people were on it.
+     * @return An object containing the example server.
+     */
+    public static McSrvResponse getExampleServer() {
         Gson gson = new Gson();
         try (
                 FileReader fileReader = new FileReader("server.json");

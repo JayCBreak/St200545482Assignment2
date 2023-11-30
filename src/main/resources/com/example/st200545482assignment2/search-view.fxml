@@ -14,17 +14,22 @@
 
 <AnchorPane prefHeight="1000.0" prefWidth="800.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.st200545482assignment2.SearchViewController">
    <children>
-      <VBox alignment="TOP_CENTER" layoutX="126.0" layoutY="76.0" prefHeight="1000.0" prefWidth="800.0" spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox alignment="TOP_CENTER" layoutX="126.0" layoutY="76.0" prefHeight="1000.0" prefWidth="800.0" spacing="15.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label id="header" text="Minecraft Server Lookup">
                <VBox.margin>
-                  <Insets bottom="25.0" top="75.0" />
+                  <Insets bottom="25.0" top="50.0" />
                </VBox.margin>
             </Label>
             <HBox alignment="CENTER" spacing="20.0">
                <children>
                   <TextField fx:id="ipTextField" prefWidth="400.0" promptText="IP:PORT" />
-                  <Button mnemonicParsing="false" onAction="#searchButton" text="Search Server" />
+                  <VBox spacing="10.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#searchButton" text="Search Server" />
+                        <Button mnemonicParsing="false" onAction="#exampleButton" text="LOAD EXAMPLE" />
+                     </children>
+                  </VBox>
                </children>
             </HBox>
             <Label fx:id="onlineLabel" text="onlineLabel" />

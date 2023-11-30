@@ -11,10 +11,18 @@ public class ServerPlayerInfo {
     @SerializedName("list")
     private List<Player> playerList;
 
+    /**
+     * Get the number of players online right now.
+     * @return An int of the number of players on the server currently.
+     */
     public int getOnline() {
         return online;
     }
 
+    /**
+     * Get the total number of players allowed to join.
+     * @return An int of the total number of players allowed on the server at any given time.
+     */
     public int getMax() {
         return max;
     }
