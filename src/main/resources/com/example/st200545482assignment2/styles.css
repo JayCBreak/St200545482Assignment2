@@ -1,45 +1,56 @@
 .root{
-    -fx-font: bold italic 20pt "Arial";
+    -fx-font: 20pt "Arial";
     -fx-background-image: url("images/background.jpg");
     -fx-background-size: cover;
-    -fx-text-fill: #e0820f;
+    -fx-text-fill: #33fa3b;
 }
 
-#msgLabel{
-    -fx-text-fill: #e0820f;
-    -fx-font: bold 30pt "Forte";
-    -fx-background-color: #140d09;
-    -fx-background-radius: 20px;
+#header {
+    -fx-font: bold italic 30pt "Arial";
     -fx-padding: 10px;
+    -fx-background-radius: 20px;
 }
 
 .label{
-    -fx-text-fill: #e0820f;
+    -fx-text-fill: #33fa3b;
 }
 
-#gridPane {
-    -fx-text-fill: #e0820f;
-    -fx-font: bold 30pt "Forte";
+.text-field {
+    -fx-background-radius: 20px;
+    -fx-background-color: #140d09;
+    -fx-text-fill: white;
+}
+
+ImageView {
+    -fx-fit-height: 5px;
+    -fx-preserve-ratio: true;
+}
+
+.table-view {
+    -fx-text-fill: #33fa3b;
+    -fx-font: bold 20pt "Arial";
     -fx-background-color: #140d09;
     -fx-background-radius: 20px;
     -fx-padding: 10px;
 }
 
-.button {
-    -fx-effect: dropshadow( one-pass-box , black , 8 , 0.0 , 2 , 0 );
+.column-header-background,
+.table-column {
+    -fx-background-color: black;
     -fx-background-radius: 20px;
+}
+
+.button {
+    -fx-text-fill: #33fa3b;
+    -fx-effect: dropshadow(one-pass-box, black, 8, 0, 2, 0);
+    -fx-background-radius: 20px;
+    -fx-background-color: #5b3109;
 }
 
 .list-view {
     -fx-background-radius: 20px;
 }
 
-.text-field{
-    -fx-background-radius: 20px;
-}
-
-#titlesListView {
-    -fx-padding: 10px;
-    -fx-background-color: #140d09;
-    -fx-background-radius: 20px;
+#onlineLabel {
+    -fx-effect: dropshadow(one-pass-box, black, 25, 0, 0, 0);
 }
