@@ -27,6 +27,10 @@ public class ServerPlayerInfo {
         return max;
     }
 
+    /**
+     * Get a List of players currently connected to the server
+     * @return A List of Player objects containing personal info
+     */
     public List<Player> getPlayerList() {
         return playerList;
     }

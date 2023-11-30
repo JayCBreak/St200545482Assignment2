@@ -38,12 +38,19 @@ public class SearchViewController {
 
     public McSrvResponse server;
 
+    /**
+     * Initialize the program to safe values
+     */
     @FXML
     public void initialize() {
         onlineLabel.setText("");
         gridPane.setVisible(false);
     }
 
+    /**
+     * Gets the Minecraft server given the IP and optional Port in ipTextField
+     * @param event The current ActionEvent
+     */
     @FXML
     void searchButton(ActionEvent event) {
         try {
@@ -55,6 +62,10 @@ public class SearchViewController {
         }
     }
 
+    /**
+     * Gets the Minecraft server from the example .json file captured on Wednesday Nov. 29th 2023
+     * @param event The current ActionEvent
+     */
     @FXML
     void exampleButton(ActionEvent event) {
         try {
@@ -66,6 +77,10 @@ public class SearchViewController {
         }
     }
 
+    /**
+     * Changes the scene to show the players currently on the loaded server
+     * @param event The current ActionEvent
+     */
     @FXML
     void showPlayersButton(ActionEvent event) {
         try {
@@ -75,6 +90,9 @@ public class SearchViewController {
         }
     }
 
+    /**
+     * A private helper method to remove redundant code from loading from API or local json file
+     */
     private void loadServer() {
         if(server.isOnline()) {
             onlineLabel.setText("Server Is Online!");

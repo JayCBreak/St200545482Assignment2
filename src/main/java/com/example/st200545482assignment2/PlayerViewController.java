@@ -32,12 +32,19 @@ public class PlayerViewController  implements PlayerLoader{
     @FXML
     private TableView<Player> playerTableView;
 
+    /**
+     * Initialize the program to safe values
+     */
     public void initialize() {
         onlineNumLabel.setText("Online Players: 0");
         maxNumLabel.setText("Max Players: 25");
         errorLabel.setText("");
     }
 
+    /**
+     * Changes the scene so the user can load a new server to view
+     * @param event The current ActionEvent
+     */
     @FXML
     void searchServersButton(ActionEvent event) {
         try {
@@ -47,12 +54,16 @@ public class PlayerViewController  implements PlayerLoader{
         }
     }
 
+    /**
+     *  A helper function that loads player data from the currently loaded server into this view
+     * @param playerInfo A ServerPlayerInfo object containing player numbers and data is used for display in the view
+     */
     @Override
     public void loadPlayers(ServerPlayerInfo playerInfo) {
         onlineNumLabel.setText("Online Players: " + playerInfo.getOnline());
         maxNumLabel.setText("Max Players: " + playerInfo.getMax());
 
-        //Hide the table if there is noone or tons since the api won't show anything
+        //Hide the table if there is no or tons of players since the api won't show anything
         if(playerInfo.getOnline() == 0 || playerInfo.getOnline() > 50 || playerInfo.getPlayerList().isEmpty()) {
             playerTableView.setVisible(false);
             errorLabel.setText("ERROR: No players/Too Many Players");
