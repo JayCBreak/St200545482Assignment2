@@ -21,6 +21,9 @@ public class PlayerViewController  implements PlayerLoader{
     private Label onlineNumLabel;
 
     @FXML
+    private Label errorLabel;
+
+    @FXML
     private TableColumn<Player, ImageView> imageColumn;
 
     @FXML
@@ -30,10 +33,9 @@ public class PlayerViewController  implements PlayerLoader{
     private TableView<Player> playerTableView;
 
     public void initialize() {
-        imageColumn.setCellValueFactory(new PropertyValueFactory<>("icon"));
-        nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
         onlineNumLabel.setText("Online Players: 0");
         maxNumLabel.setText("Max Players: 25");
+        errorLabel.setText("");
     }
 
     @FXML
@@ -50,8 +52,20 @@ public class PlayerViewController  implements PlayerLoader{
         onlineNumLabel.setText("Online Players: " + playerInfo.getOnline());
         maxNumLabel.setText("Max Players: " + playerInfo.getMax());
 
-        ObservableList<Player> data = FXCollections.observableArrayList(playerInfo.getPlayerList());
-        playerTableView.setItems(data);
+        //Hide the table if there is noone or tons since the api won't show anything
+        if(playerInfo.getOnline() == 0 || playerInfo.getOnline() > 50 || playerInfo.getPlayerList().isEmpty()) {
+            playerTableView.setVisible(false);
+            errorLabel.setText("ERROR: No players/Too Many Players");
+            errorLabel.setStyle("-fx-text-fill: red");
+        } else {
+            playerTableView.setVisible(true);
+            errorLabel.setText("");
+            imageColumn.setCellValueFactory(new PropertyValueFactory<>("icon"));
+            nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+
+            ObservableList<Player> data = FXCollections.observableArrayList(playerInfo.getPlayerList());
+            playerTableView.setItems(data);
+        }
     }
 
 }
