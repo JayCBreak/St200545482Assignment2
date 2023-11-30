@@ -64,7 +64,7 @@ public class PlayerViewController  implements PlayerLoader{
         maxNumLabel.setText("Max Players: " + playerInfo.getMax());
 
         //Hide the table if there is no or tons of players since the api won't show anything
-        if(playerInfo.getOnline() == 0 || playerInfo.getOnline() > 50 || playerInfo.getPlayerList().isEmpty()) {
+        if(playerInfo.getOnline() == 0 || playerInfo.getOnline() > 50 || playerInfo.getPlayerList() == null) {
             playerTableView.setVisible(false);
             errorLabel.setText("ERROR: No Players/Too Many Players");
             errorLabel.setStyle("-fx-text-fill: red");
