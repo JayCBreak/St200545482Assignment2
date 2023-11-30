@@ -8,6 +8,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 
+import java.io.IOException;
+
 public class SearchViewController {
 
     @FXML
@@ -34,7 +36,7 @@ public class SearchViewController {
     @FXML
     private Label versionLabel;
 
-    private McSrvResponse server;
+    public McSrvResponse server;
 
     @FXML
     public void initialize() {
@@ -67,7 +69,7 @@ public class SearchViewController {
     @FXML
     void showPlayersButton(ActionEvent event) {
         try {
-            SceneChanger.changeScenes(event, "search-view.fxml", server.getPlayerInfo());
+            SceneChanger.changeScenes(event, "player-view.fxml", server.getPlayerInfo());
         } catch (Exception e) {
             System.out.println("Cannot change scenes: " + e.getMessage());
         }

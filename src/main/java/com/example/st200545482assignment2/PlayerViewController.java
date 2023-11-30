@@ -30,7 +30,7 @@ public class PlayerViewController  implements PlayerLoader{
     private TableView<Player> playerTableView;
 
     public void initialize() {
-        imageColumn.setCellValueFactory(new PropertyValueFactory<>("imageView"));
+        imageColumn.setCellValueFactory(new PropertyValueFactory<>("icon"));
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
         onlineNumLabel.setText("Online Players: 0");
         maxNumLabel.setText("Max Players: 25");
@@ -45,6 +45,7 @@ public class PlayerViewController  implements PlayerLoader{
         }
     }
 
+    @Override
     public void loadPlayers(ServerPlayerInfo playerInfo) {
         onlineNumLabel.setText("Online Players: " + playerInfo.getOnline());
         maxNumLabel.setText("Max Players: " + playerInfo.getMax());
