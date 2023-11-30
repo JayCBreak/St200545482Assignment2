@@ -21,23 +21,30 @@
     -fx-text-fill: white;
 }
 
-ImageView {
-    -fx-fit-height: 5px;
-    -fx-preserve-ratio: true;
-}
-
 .table-view {
     -fx-text-fill: #33fa3b;
     -fx-font: bold 20pt "Arial";
-    -fx-background-color: #140d09;
+    -fx-background-color: #5b3109;
     -fx-background-radius: 20px;
     -fx-padding: 10px;
 }
 
+/* I HAVE DONE EVERYTHING TO GET RID OF THAT STUPID GREY BOX ABOVE THE SCROLLBAR I GIVE UP */
 .column-header-background,
-.table-column {
+.table-column,
+.scroll-bar,
+.scroll-bar .track{
     -fx-background-color: black;
     -fx-background-radius: 20px;
+}
+
+.table-row-cell {
+    -fx-background-color: #5b3109;
+}
+
+.table-cell {
+    -fx-border-color: white;
+    -fx-text-fill: #33fa3b;
 }
 
 .button {

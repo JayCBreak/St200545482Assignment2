@@ -28,6 +28,6 @@ public class Player {
      * @return ImageView that leads to a png from the Crafatar API
      */
     public ImageView getIcon() {
-        return new ImageView(new Image("https://crafatar.com/avatars/" + uuid + "?size=130"));
+        return new ImageView(new Image("https://crafatar.com/avatars/" + uuid + "?size=125"));
     }
 }

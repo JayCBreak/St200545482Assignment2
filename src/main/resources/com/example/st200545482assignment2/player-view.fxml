@@ -13,7 +13,7 @@
     <children>
         <VBox alignment="TOP_CENTER" layoutX="126.0" layoutY="76.0" prefHeight="1000.0" prefWidth="800.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
-                <Label id="header" text="Minecraft Players">
+                <Label id="header" text="Player List">
                     <VBox.margin>
                         <Insets bottom="25.0" top="25.0" />
                     </VBox.margin>
@@ -24,17 +24,21 @@
                   <Label fx:id="maxNumLabel" text="maxNumLabel" />
                </children>
             </HBox>
-            <Label fx:id="errorLabel" text="errorLabel" />
+            <Label fx:id="errorLabel" text="errorLabel">
+               <VBox.margin>
+                  <Insets top="25.0" />
+               </VBox.margin>
+            </Label>
                 <TableView fx:id="playerTableView" prefHeight="550.0" prefWidth="200.0">
                     <columns>
-                        <TableColumn fx:id="imageColumn" prefWidth="169.0" text="Icon" />
+                        <TableColumn fx:id="imageColumn" prefWidth="230.0" text="Icon" />
                         <TableColumn fx:id="nameColumn" prefWidth="629.0" text="Player Name" />
                     </columns>
                <columnResizePolicy>
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                </columnResizePolicy>
                <VBox.margin>
-                  <Insets bottom="50.0" left="50.0" right="50.0" top="20.0" />
+                  <Insets bottom="25.0" left="75.0" right="75.0" top="25.0" />
                </VBox.margin>
                 </TableView>
                 <Button mnemonicParsing="false" onAction="#searchServersButton" text="Search Servers" />

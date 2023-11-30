@@ -48,20 +48,44 @@
     ]
   },
   "players": {
-    "online": 3,
-    "max": 69,
+    "online": 9,
+    "max": 25,
     "list": [
+      {
+        "name": "JayCBreak",
+        "uuid": "ed716430-ebae-4e48-be06-ea4a1d8d0fa9"
+      },
       {
         "name": "appledwagon",
         "uuid": "e3ad0c91-455b-4d2f-80f0-884b8e95cc84"
+      },
+      {
+        "name": "Crmzen",
+        "uuid": "317ed587-ccf8-40d5-b61f-baf563f63ee4"
+      },
+      {
+        "name": "bunnnty",
+        "uuid": "cbe5a320-a5a5-4e86-bec4-c48570e2a2e7"
+      },
+      {
+        "name": "Lemonsammich",
+        "uuid": "eb613286-9dd6-4d80-8fa9-bb4085545d15"
       },
       {
         "name": "ShinyCrowFeather",
         "uuid": "9a35cc6f-dddc-4abe-9aef-5a6e7481c157"
       },
       {
-        "name": "JayCBreak",
-        "uuid": "ed716430-ebae-4e48-be06-ea4a1d8d0fa9"
+        "name": "Cronksss",
+        "uuid": "8c23ed39-c064-4b16-9c35-6a8fa781ad28"
+      },
+      {
+        "name": "LowKeyF7re",
+        "uuid": "de2d8064-1280-42bb-a6d7-34d54937ccab"
+      },
+      {
+        "name": "SilentNinj_",
+        "uuid": "d8d812ed-676a-4b56-96f1-dc262be2f392"
       }
     ]
   },
